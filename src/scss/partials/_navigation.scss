@@ -1,0 +1,230 @@
+nav {
+  width: 360px;
+  max-width: 100%;
+  height: 100vh;
+  background: var(--background-secondary-color);
+  flex-shrink: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: .3s ease-out;
+  transform: translateX(-100%);
+  z-index: 3;
+
+  @include screen("lg", "xxl") {
+    transform: translateX(0);
+    position: static;
+  }
+
+  .nav-header {
+    background: var(--background-tertiary-color);
+    height: 64px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+
+    .title {
+      padding-left: 12px;
+
+      h2 {
+        margin: 0;
+        font-weight: 500;
+        font-size: 18px;
+        color: var(--font-primary-color);
+      }
+
+      h3 {
+        margin: 0;
+        font-weight: 500;
+        font-size: 12px;
+        color: var(--font-secondary-color);
+      }
+    }
+
+    @include screen("xs", "md") {
+      #nav-toggle {
+        width: 42px;
+        height: 42px;
+        margin-left: auto;
+        position: relative;
+        cursor: pointer;
+        transition: transform .3s ease-out;
+        transform: translateX(64px);
+
+        div {
+          background: var(--font-primary-color);
+          height: 2px;
+          border-radius: 1px;
+          width: 20px;
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transition: transform .3s ease-out;
+
+          &:nth-child(1) {
+            transform: translate(-50%, -8px) rotate(0deg);
+          }
+          &:nth-child(2) {
+            transform: translate(-50%, -1px) rotate(0deg);
+          }
+          &:nth-child(3) {
+            transform: translate(-50%, 6px) rotate(0deg);
+          }
+        }
+      }
+    }
+  }
+
+  .nav-scroller {
+    height: calc(100vh - 64px);
+    overflow: auto;
+
+    .nav-scroller-content {
+      padding: 12px 0px;
+    }
+  }
+
+  .nav-link {
+    display: block;
+    height: 40px;
+    margin: 0px 8px;
+    width: calc(100% - 16px);
+    border-radius: 4px;
+    color: var(--font-secondary-color);
+    padding: 8px 8px 8px 36px;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    @include elipsis;
+
+    &::before {
+      content: "";
+      width: 20px;
+      height: 20px;
+      display: block;
+      position: absolute;
+      top: 10px;
+      left: 8px;
+      background-image: img('channel-icon.svg');
+      background-size: 20px;
+    }
+
+    &:hover {
+      color: var(--font-primary-color);
+      background: var(--element-hover-color);
+    }
+
+    &.active {
+      color: var(--font-primary-color);
+      background: var(--element-active-color);
+    }
+  }
+
+  .nav-category {
+    .nav-category-title {
+      margin-top: 12px;
+      height: 42px;
+      padding: 13px 16px 13px 2px;
+      background: transparent;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--font-secondary-color);
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      @include elipsis;
+      text-align: left;
+      text-transform: uppercase;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background-image: img('arrow.svg');
+        margin-right: 2px;
+        flex-shrink: 0;
+        position: relative;
+        top: 2px;
+        transition: transform .2s ease-out;
+        transform: rotate(-90deg)
+      }
+
+      &:hover {
+        color: var(--font-primary-color);
+      }
+    }
+
+    .nav-category-content {
+      display: none;
+    }
+
+    &.expanded {
+      .nav-category-title {
+        &::before {
+          transform: rotate(0deg);
+        }
+      }
+      .nav-category-content {
+        display: block;
+      }
+    }
+  }
+}
+
+
+.simplebar-track.simplebar-vertical {
+  width: 8px;
+
+  .simplebar-scrollbar {
+    width: 8px;
+
+    &:before {
+      background: var(--scroll-color);
+      width: 4px;
+    }
+
+    &.simplebar-visible {
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@include screen("xs", "md") {
+  .wrapper.show-sidebar nav {
+    transform: translateX(0);
+
+    .nav-header #nav-toggle {
+      transform: translateX(0px);
+
+      div {
+        &:nth-child(1) {
+          transform: translate(-50%, -1px) rotate(45deg);
+        }
+        &:nth-child(2) {
+          transform: translate(-50%, -1px) rotate(-45deg);
+        }
+        &:nth-child(3) {
+          transform: translate(-50%, -1px) rotate(45deg);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+// Colors
+:root {
+  --background-primary-color: hsl(223, 7%, 21%);
+  --background-secondary-color: hsl(220, 7%, 18%);
+  --background-tertiary-color: hsl(228, 7%, 15%);
+  --font-primary-color: hsl(210, 9%, 87%);
+  --font-secondary-color: hsl(214, 8%, 61%);
+  --font-tertiary-color: hsl(223, 6%, 53%);
+  --separator-color: hsl(225, 6%, 26%);
+  --element-active-color: hsla(228, 6%, 33%, 60%);
+  --element-hover-color: hsla(228, 6%, 33%, 29.8%);
+  --scroll-color: hsl(225, 7%, 11%);
+}
+
+// Responsive breakpoints
+$__breakpoint_xs: 0px;       // 0px - 479px
+$__breakpoint_sm: 480px;     // 480px - 767px
+$__breakpoint_md: 768px;     // 768px - 1023px
+$__breakpoint_lg: 1024px;    // 1024pz - 1199px
+$__breakpoint_xl: 1200px;    // 1200px - 1499px
+$__breakpoint_xxl: 1500px;   // 1500px ^

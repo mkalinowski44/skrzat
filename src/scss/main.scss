@@ -1,0 +1,30 @@
+@import 'typography';
+@import 'variables';
+@import 'mixins';
+@import 'partials/base';
+@import 'partials/navigation';
+@import 'partials/header';
+@import 'partials/home';
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  font-family: 'gg sans', sans-serif;
+  background: var(--background-primary-color);
+  color: var(--font-primary-color);
+}
+
+input, select, textarea, button {
+  font-family: 'gg sans', sans-serif;
+}
