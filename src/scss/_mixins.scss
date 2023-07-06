@@ -61,3 +61,14 @@
    overflow: hidden;
    text-overflow: ellipsis;
 }
+
+@mixin textLink() {
+   padding: 12px;
+   margin: -12px;
+   position: relative;
+   z-index: 1;
+
+   &:hover {
+      color: var(--accent-color);
+   }
+}

@@ -1,10 +1,11 @@
-@import 'typography';
 @import 'variables';
+@import 'typography';
 @import 'mixins';
 @import 'partials/base';
 @import 'partials/navigation';
 @import 'partials/header';
 @import 'partials/home';
+@import 'partials/footer';
 
 *, *::after, *::before {
   box-sizing: border-box;
@@ -12,6 +13,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 10px;
 }
 
 body {
@@ -23,6 +25,12 @@ body {
   font-family: 'gg sans', sans-serif;
   background: var(--background-primary-color);
   color: var(--font-primary-color);
+  overflow: hidden;
+}
+
+::selection {
+  background-color: var(--accent-color);
+  color: black;
 }
 
 input, select, textarea, button {
