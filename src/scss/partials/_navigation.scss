@@ -91,7 +91,7 @@ nav {
 
   .nav-scroller {
     height: calc(100vh - 64px);
-    overflow: auto;
+    overflow: visible;
 
     .nav-scroller-content {
       padding: 12px 0px;
@@ -104,8 +104,9 @@ nav {
     width: calc(100% - 16px);
     border-radius: 4px;
     color: var(--font-secondary-color);
-    padding: 8px 8px 8px 36px;
-    font-size: var(--font-l-size);
+    padding: 9px 8px 9px 36px;
+    min-height: 40px;
+    font-size: var(--font-m-size);
     font-weight: 500;
     text-decoration: none;
     position: relative;

@@ -53,6 +53,30 @@ p {
       }
     }
 
+    p.info {
+      font-size: var(--font-m-size);
+      background: var(--background-tertiary-color);
+      padding: 16px;
+      border-radius: 8px;
+
+      &.danger {
+        box-shadow: 0 0 0px 2px var(--danger-color);
+        background: var(--background-danger-color);
+      }
+      &.warning {
+        box-shadow: 0 0 0px 2px var(--warning-color);
+        background: var(--background-warning-color);
+      }
+      &.success {
+        box-shadow: 0 0 0px 2px var(--success-color);
+        background: var(--background-success-color);
+      }
+      &.update {
+        box-shadow: 0 0 0px 2px var(--update-color);
+        background: var(--background-update-color);
+      }
+    }
+
     .container {
       width: 800px;
       max-width: calc(100% - 32px);
@@ -148,6 +172,14 @@ p {
         }
       }
 
+      ol > li > ol {
+        list-style-type: lower-latin;
+
+        li > ol {
+          list-style-type: upper-roman;
+        }
+      }
+
       ul{
         list-style-type: '\25CF    ';
       }
@@ -195,6 +227,7 @@ p {
         padding: 16px;
         border-radius: 8px;
         position: relative;
+        min-height: 80px;
 
         &::before {
           content: "";
@@ -226,6 +259,59 @@ p {
 
           &::before {
             content: "- ";
+          }
+        }
+      }
+
+      pre.wp-block-verse {
+        font-size: var(--font-m-size);
+        background: var(--background-tertiary-color);
+        padding: 16px;
+        border-radius: 8px;
+        font-style: italic;
+        position: relative;
+        min-height: 80px;
+        white-space: pre-wrap;
+
+        &::before {
+          content: "";
+          width: 56px;
+          height: 56px;
+          position: absolute;
+          display: block;
+          top: 16px;
+          right: 16px;
+          z-index: 0;
+          background-image: img('verse-icon.svg');
+          background-size: 56px;
+        }
+      }
+
+      .wp-block-file {
+        margin: 16px 0;
+        background: var(--background-tertiary-color);
+        border-radius: 8px;
+        padding: 16px;
+
+        .wp-block-file__embed {
+          margin: -16px -16px 12px -16px;
+          width: calc(100% + 32px) !important;
+        }
+
+        a:not(.wp-block-file__button) {
+          margin: 0px;
+          margin-left: -8px;
+        }
+
+        .wp-block-file__button {
+          background: var(--background-secondary-color);
+          border-radius: 8px;
+          display: inline-block;
+          margin: 0;
+
+          &:hover {
+            background: var(--background-primary-color);
+            opacity: 1;
           }
         }
       }
@@ -280,7 +366,11 @@ p {
         background-size: 16px;
       }
 
-      &:hover {
+      &.no-link::before {
+        background-image: img('quote-icon-small.svg');
+      }
+
+      &:not(.no-link):hover {
         color: var(--font-primary-color);
       }
     }
